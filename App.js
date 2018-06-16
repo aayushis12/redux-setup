@@ -1,9 +1,9 @@
 import React from 'react';
 import {createStore, applyMiddleware} from 'redux';
-import reducer from './reducer';
+import reducer from './reducers/index';
 import thunk from 'redux-thunk';
-import Provider from 'react-redux';               
-import Root from './index';
+import {Provider} from 'react-redux';               
+import Routes from './routes';
 import { StyleSheet, Text, View, TextInput, Button } from 'react-native';
 
 const store = createStore(reducer, applyMiddleware(thunk));
@@ -12,7 +12,7 @@ export default class App extends React.Component {
   render() {
     return (
       <Provider store={store}>
-        <Root/>
+        <Routes/>
       </Provider>
     );
   }

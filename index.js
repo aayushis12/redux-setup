@@ -1,14 +1,22 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import { StyleSheet, Text, View, TextInput, Button } from 'react-native';
+import {loginUser} from './actions/index';
+import FirstPage from './FirstPage';
+import { Actions } from 'react-native-router-flux';
 
 class Root extends React.Component{
   onPressButton = () => {
-    
+    this.props.loginUser();
+    console.log(this.props.isLoggedIn);
+    if(this.props.app.isLoggedIn){
+      Actions.firstpage();
+    }
   }
 
   render(){
     return (
-      <View>
+      <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
         <Text>Hello</Text>
         <TextInput
           value="aayushisinha"
@@ -24,4 +32,10 @@ class Root extends React.Component{
   }
 }
 
-export default Root;
+const mapDispatchToProps = {
+  loginUser
+};
+
+const mapStateToProps = ({app}) => ({app});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Root);

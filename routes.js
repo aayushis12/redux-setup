@@ -9,14 +9,14 @@ export default class Routes extends React.Component{
   render(){
     return(
       <Router>
-      <Overlay>
-        <Lightbox key="modal">
-          <Scene>
-          <Scene key="root" component={Root} intial/>
-          <Scene key="firstpage" component={FirstPage}/>
-          </Scene>
-        </Lightbox>
-      </Overlay>
+        <Overlay>
+          <Lightbox key="modal">
+            <Scene>
+            <Scene key="root" component={Root} intial/>
+            <Scene key="firstpage" component={FirstPage}/>
+            </Scene>
+          </Lightbox>
+        </Overlay>
       </Router>
     )
   }

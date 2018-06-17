@@ -12,6 +12,13 @@ class Root extends React.Component{
       Actions.firstpage();
     }
   }
+
+  componentDidMount(){
+    if(this.props.app.isLoggedIn){
+      Actions.firstpage();
+    }
+  }
+
   onPressButton = () => {
     this.props.loginUser();
     console.log(this.props.app.isLoggedIn);

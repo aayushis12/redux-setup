@@ -6,12 +6,15 @@ import FirstPage from './FirstPage';
 import { Actions } from 'react-native-router-flux';
 
 class Root extends React.Component{
-  onPressButton = () => {
-    this.props.loginUser();
-    console.log(this.props.isLoggedIn);
-    if(this.props.app.isLoggedIn){
+  componentWillReceiveProps(nextProps){
+    console.log('---------------',nextProps);
+    if(nextProps.app.isLoggedIn){
       Actions.firstpage();
     }
+  }
+  onPressButton = () => {
+    this.props.loginUser();
+    console.log(this.props.app.isLoggedIn);
   }
 
   render(){

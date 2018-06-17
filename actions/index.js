@@ -1,3 +1,3 @@
 export const loginUser = () => ({
-  type: 'LOGIIN_USER',
+  type: 'LOGIN_USER',
 })
